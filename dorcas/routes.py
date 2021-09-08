@@ -370,7 +370,7 @@ def delete_post(post_id):
 
 
 
-
+#this is the logout route
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
   logout_user()
