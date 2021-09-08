@@ -1,0 +1,287 @@
+{% extends 'layout/welcome_layout.html' %}
+{% block content %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column align-items-center justify-content-center">
+          {%if current_user.username %}
+   <h1 style="text-transform:capitalize"> Hello {{current_user.username}}</h1>
+          {% else %}
+          <h1>Hello</h1>
+          {% endif %}
+
+    <h2>I am a Data Scientist/Software-Developer</h2>
+    <a href="#about" class="btn-get-started scrollto"><i class="bi bi-chevron-double-down"></i></a>
+  </section><!-- End Hero -->
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row no-gutters">
+         
+            <img src="/static/assets/img/new/toyin2.jfif" class="md-myimg" alt="" >
+         
+          <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
+           
+            <div class="content d-flex flex-column justify-content-center">
+              <h3>CORE COMPETENCIES</h3>
+              <p>
+              Systematic working methodology skills: Effectively putting necessary logistics together to achieve project scope objective using project management skills; excellent ability for multitasking and working under tight timelines
+              </p>
+              <div class="row">
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">  
+                    <i class="bi bi-emoji-smile"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Coordination, Monitoring and Evaluation</strong> Montitoring and analysing transaction performance of agents registered on the Mobile Banking platform scheme</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-journal-richtext"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Excellent Analyzing and Data Interpretation Skills</strong> Participated in data cleaning and Interpretation of data for projects</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-clock"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Years of experience</strong> Worked with stakeholders within agrictech sector and NGO's with over 5000 datas</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-award"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Achievements</strong></p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          {% if current_user.skill_status == '0' %}
+          <div class="section-title">
+            <h2>Skills <a href="{{url_for('skills')}}"> <img src="/static/assets/img/new/pencil.png" alt="edit" style="width: 30px; height:30px;"></a></h2>
+           
+          </div>
+          {% else %}
+          <div class="section-title">
+            <h2>Skills <a href="{{url_for('editskills')}}"> <img src="/static/assets/img/new/pencil.png" alt="edit" style="width: 30px; height:30px;"></a></h2>
+           
+          </div>
+          {% endif %}
+        </div>
+        {% for skill in skills %}
+        <div><p style=" font-size: 20px;text-transform: capitalize;">{{skill.description}}</p></div>
+        <div class="row skills-content">
+         
+          <div class="col-lg-6">
+
+            <div class="progress">
+              <span class="skill">HTML <i class="val">{{skill.html}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.html}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">CSS <i class="val">{{skill.css}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.css}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Python <i class="val">{{skill.python}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.python}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <div class="progress">
+              <span class="skill">Flask <i class="val">{{skill.flask}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.flask}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Excel <i class="val">{{skill.excel}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.excel}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Mechine Learning <i class="val">{{skill.mechine_learning}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.mechine_learning}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+{% endfor %}
+      </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume section-bg">
+      <div class="container">
+        {% for bio in bios %}
+        <div class="section-title">
+          {% if current_user.bio_status == '0'%}
+          <h2>Biography <a href="{{url_for('bio')}}"> <img src="/static/assets/img/new/pencil.png" alt="edit" style="width: 30px; height:30px;"></a></h2>
+          {% else %}
+          <h2>Biography <a href="{{url_for('editbio')}}"> <img src="/static/assets/img/new/pencil.png" alt="edit" style="width: 30px; height:30px;"></a></h2>
+          {% endif %}
+          <p>{{bio.description}}</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+         
+            <div class="resume-item pb-0">
+              <!-- <h4>Alice Barkley</h4>
+              <p><em></em></p> -->
+              <p>
+              <ul>
+                <li>{{bio.city}} {{bio.country}}</li>
+                <li>{{bio.w_phone}}</li>
+                <li><a href="{{bio.link_url}}">{{bio.link_url}}</a></li>
+              </ul>
+              </p>
+            </div>
+            {% endfor %}
+         
+
+            
+            <div class="section-title">
+          <h2>Education<a href="{{url_for('edu')}}"> <img src="/static/assets/img/new/pencil.png" alt="edit" style="width: 30px; height:30px;"></a></h2>
+          {% for edu in edus %}
+            <div class="resume-item">
+              <h4>{{edu.title}}</h4>
+              <h5>{{edu.year}}</h5>
+              <p><em>{{edu.institu}}</em></p>
+              <p>{{edu.city}} {{edu.country}}</p>
+            </div>
+            {% endfor %}
+          </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="section-title">
+            <h2>Professional Experience<a href="{{url_for('prof')}}"> <img src="/static/assets/img/new/pencil.png" alt="edit" style="width: 30px; height:30px;"></a> </h2>
+           {% for prof in profs %}
+            <div class="resume-item">
+              <h4>{{prof.title}}</h4>
+              <h5>{{prof.year}}</h5>
+              <!-- <p><em>{{prof.city}} {{prof.country}} </em></p> -->
+              <p>{{prof.company}} {{prof.city}} {{prof.country}}
+              <ul style="font-size: small;">
+                <li>
+                  {{prof.duty1}}
+
+                </li>
+                <li> 
+                  {{prof.duty2}}
+                </li>
+                <li>
+                  {{prof.duty3}}
+                </li>
+              </ul>
+              </p>
+            </div>
+          {% endfor %}
+        </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+          <section id="services" class="services section-bg">
+            <div class="container">
+      
+              <div class="section-title">
+                <h2>Services</h2>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+              </div>
+      
+              <div class="row">
+                
+                 {% for post in posts.items %}
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" style=" height: 410px; width: 410px; border-radius: 3px; !important">
+                  <div class="icon-box">
+                   
+                    <img src="{{url_for('static', filename='user_uploads/' + post.screenshot)}}" alt="" style="width:360px;height:200px; border:0px solid black;object-fit: fill;">
+                    <div style="position: relative; top:-190px; left: 20px; justify-content: center;  padding-right: 5px;width: 40px; height: 40px; border-radius: 100px; z-index: 900">
+                      <a href="{{url_for('updatescreenshot', post_id=post.id)}}"><img src="/static/assets/img/new/photo-camera.png" style="width:22px;height:22px;margin:10px"></a> 
+                      </div>
+                      <div id="md-post-del">
+                        <a href="{{url_for('delete_post', post_id=post.id)}}"><img src="/static/assets/img/new/trash.png" style="width:22px;height:22px;margin:10px"></a> 
+                        </div>
+                    <h5 class="title" style="margin-top:-60px; font-size: 18px; font-weight: 200;"><a href="">{{post.title}}</a></h5>
+                    <p class="description" style="font-size: small;height:70px">{{post.description}}</p>
+                    <div style="display:flex; margin: 3px; justify-content: space-evenly;">
+                       
+    
+                      
+                  </div>
+                  <div style="display: flex;justify-content: space-between;">
+                    <a href="{{url_for('updatefile', post_id= post.id)}}" style="width: 100px; height: 40px; border: 1px solid #e0e0eb; padding: 10px; border-radius:3px;font-size: small;">Edit File</a>
+                     <a href="{{url_for('editinfo', post_id= post.id)}}" style="width: 100px; height: 40px; border: 1px solid #e0e0eb; padding: 10px; border-radius:3px;font-size: small;">Edit Info</a>
+                  </div>
+                  </div>
+                  
+                </div>
+                {% endfor %}
+
+                <br>
+     <br>
+          <center style="margin-top: 40px;">
+   {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                      {% if page_num %}
+                           {% if posts.page == page_num %}
+                            <a style="background-color:#ff5c33; color:#ffffff; padding: 12px; border-radius:3px; margin-top:0px" href="{{url_for('profile', page= page_num )}}">{{page_num}}</a>
+                            {% else %}
+                            <a style="border:1px solid #ff5c33; padding: 12px; border-radius:3px; margin-top:0px" href="{{url_for('profile', page= page_num )}}">{{page_num}}</a>
+                            {% endif %}
+                          {% else %}
+                         
+                        ...
+                      {% endif %}
+
+                  {% endfor %}
+                  </center>
+   
+
+                
+              
+
+              
+               
+          </section><!-- End Services Section -->
+          <div style="width: 80px; height: 80px; background-color: rgb(128, 128, 184); border-radius: 100%; position: fixed; top: 70%; right: 40px;color: #fff; justify-content: center;align-items: center; text-align: center; padding-top: 20px;">
+            <a href="{{url_for('posted')}}" style="color:white"><h3 style="text-align: center; font-size: 30px; font-weight: bold;">+</h3></a> 
+           </div>
+    
+{% endblock %}
+
+  

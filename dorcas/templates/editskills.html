@@ -1,0 +1,140 @@
+
+{% extends 'layout/welcome_layout.html' %}
+{% block content %}
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row no-gutters align-items-center" id="major-container-top">
+                    <div class="col-xl-12 align-items-center" style="align-items:center;">
+                      {% with messages= get_flashed_messages(with_categories=true) %}
+                      {% if messages %}
+                         {% for category, message in messages %}
+                      <div class="alert alert border-1 shadow-sm" {{category}}"  style=" color:#000000; display: flex; font-size: 15px; text-align:center;">
+                         
+                           {{message}}
+                         </div>
+                      {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+            <div class="card border-1 shadow-sm" id= "major-container">
+                <form method="post" action=""  accept-charset="UTF-8">
+                
+                    {{ form.hidden_tag() }}
+    
+          
+                    <div class="mb-3">
+                      {{ form.description.label(class="form-label", style="font-size:13px") }}
+                                {% if form.description.errors %}
+                                {{ form.description(class="form-control is-invalid") }}  
+                                  <ul class="errors">
+                                    {% for error in form.description.errors %}
+                                      <li>{{ error }}</li>
+                                    {% endfor %}
+                                  </ul>
+                                  {% else %}
+                                   {{ form.description(class="form-control") }} 
+                                {% endif %}
+                    </div>
+                    <div class="mb-3">
+                      {{ form.html.label(class="form-label", style="font-size:13px") }}
+                      {% if form.html.errors %}
+                      {{ form.html(class="form-control is-invalid") }}  
+                        <ul class="errors">
+                          {% for error in form.html.errors %}
+                            <li>{{ error }}</li>
+                          {% endfor %}
+                        </ul>
+                        {% else %}
+                         {{ form.html(class="form-control") }} 
+                      {% endif %}
+    
+                      </div>
+    
+                      <div class="mb-3">
+                        {{ form.css.label(class="form-label", style="font-size:13px") }}
+                        {% if form.css.errors %}
+                        {{ form.css(class="form-control is-invalid") }}  
+                          <ul class="errors">
+                            {% for error in form.css.errors %}
+                              <li>{{ error }}</li>
+                            {% endfor %}
+                          </ul>
+                          {% else %}
+                           {{ form.css(class="form-control") }} 
+                        {% endif %}
+      
+                        </div>
+                      
+                        <div class="mb-3">
+                            {{ form.python.label(class="form-label", style="font-size:13px") }}
+                            {% if form.python.errors %}
+                            {{ form.python(class="form-control is-invalid") }}  
+                              <ul class="errors">
+                                {% for error in form.python.errors %}
+                                  <li>{{ error }}</li>
+                                {% endfor %}
+                              </ul>
+                              {% else %}
+                               {{ form.python(class="form-control") }} 
+                            {% endif %}
+          
+                            </div>
+                           
+                            <div class="mb-3">
+                                {{ form.flask.label(class="form-label", style="font-size:13px") }}
+                                {% if form.flask.errors %}
+                                {{ form.flask(class="form-control is-invalid") }}  
+                                  <ul class="errors">
+                                    {% for error in form.flask.errors %}
+                                      <li>{{ error }}</li>
+                                    {% endfor %}
+                                  </ul>
+                                  {% else %}
+                                   {{ form.flask(class="form-control") }} 
+                                {% endif %}
+              
+                                </div>
+    
+                                <div class="mb-3">
+                                    {{ form.excel.label(class="form-label", style="font-size:13px") }}
+                                    {% if form.excel.errors %}
+                                    {{ form.excel(class="form-control is-invalid") }}  
+                                      <ul class="errors">
+                                        {% for error in form.excel.errors %}
+                                          <li>{{ error }}</li>
+                                        {% endfor %}
+                                      </ul>
+                                      {% else %}
+                                       {{ form.excel(class="form-control") }} 
+                                    {% endif %}
+                  
+                                    </div>
+                                <div class="mb-3">
+                                        {{ form.mechine_learning.label(class="form-label", style="font-size:13px") }}
+                                        {% if form.mechine_learning.errors %}
+                                        {{ form.mechine_learning(class="form-control is-invalid") }}  
+                                          <ul class="errors">
+                                            {% for error in form.mechine_learning.errors %}
+                                              <li>{{ error }}</li>
+                                            {% endfor %}
+                                          </ul>
+                                          {% else %}
+                                           {{ form.mechine_learning(class="form-control") }} 
+                                        {% endif %}
+                      
+                                        </div>
+                    {{ form.submit( class="btn btn-primary") }}
+                    
+                  </form>
+              <div class="border=top pt-3">
+                <small style="font-size:15px;" >Already have an account?    <a href="{{url_for('register')}}">Sign up</a></small>
+              </div>
+            </div>
+            
+              </div>
+              
+            </div><!-- End .content-->
+            {% endblock %}
+
+  

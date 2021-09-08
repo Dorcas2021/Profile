@@ -1,0 +1,566 @@
+{% extends 'layout/welcome_layout.html' %}
+{% block content %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column align-items-center justify-content-center">
+          {%if current_user.username %}
+   <h1 style="text-transform:capitalize"> Hello </h1>
+          {% else %}
+          <h1>Hello</h1>
+          {% endif %}
+
+    <h2>I am a Data Scientist/Software-Developer</h2>
+    <a href="#about" class="btn-get-started scrollto"><i class="bi bi-chevron-double-down"></i></a>
+  </section><!-- End Hero -->
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row no-gutters">
+          <img src="/static/assets/img/new/toyin.jpeg"  class="md-myimg" alt="">
+          <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
+         
+            <div class="content d-flex flex-column justify-content-center">
+              <h3>CORE COMPETENCIES</h3>
+              <p>
+              Systematic working methodology skills: Effectively putting necessary logistics together to achieve project scope objective using project management skills; excellent ability for multitasking and working under tight timelines
+              </p>
+              <div class="row">
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">  
+                    <i class="bi bi-emoji-smile"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Coordination, Monitoring and Evaluation</strong> Montitoring and analysing transaction performance of agents registered on the Mobile Banking platform scheme</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-journal-richtext"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Excellent Analyzing and Data Interpretation Skills</strong> Participated in data cleaning and Interpretation of data for projects</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-clock"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Years of experience</strong> Worked with stakeholders within agrictech sector and NGO's with over 5000 datas</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-award"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Achievements</strong></p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills section-bg">
+      <div class="container">
+{% for skill in skills %}
+        <div class="section-title">
+          <h3>Skills</h3>
+          <p style="color:black">{{skill.description}}</p>
+        </div>
+
+        <div class="row skills-content">
+
+          <div class="col-lg-6">
+
+            <div class="progress">
+              <span class="skill">HTML <i class="val">{{skill.html}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.html}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">CSS <i class="val">{{skill.css}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.css}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Python <i class="val">{{skill.python}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.python}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <div class="progress">
+              <span class="skill">Flask <i class="val">{{skill.flask}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.flask}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Excel <i class="val">{{skill.excel}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.excel}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Mechine Learning <i class="val">{{skill.mechine_learning}}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{skill.mechine_learning}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+{% endfor %}
+</div>
+</section><!-- End Skills Section -->
+
+<!-- ======= Resume Section ======= -->
+<section id="resume" class="resume section-bg">
+  <div class="container">
+    
+    <div class="section-title">
+     <h2>Biography</h2>
+     {% for bio in bios %}
+      <p>{{bio.description}}</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+     
+        <div class="resume-item pb-0">
+          <!-- <h4>Alice Barkley</h4>
+          <p><em></em></p> -->
+          <p>
+          <ul>
+            <li>{{bio.city}} {{bio.country}}</li>
+            <li>{{bio.w_phone}}</li>
+            <li><a href="{{bio.link_url}}">{{bio.link_url}}</a></li>
+          </ul>
+          </p>
+        </div>
+        {% endfor %}
+     
+
+        
+     
+         
+        
+        <h2>Education</h2>
+        {% for edu in edus %}
+          <div class="resume-item">
+            <h4>{{edu.title}}</h4>
+            <h5>{{edu.year}}</h5>
+            <p><em>{{edu.institu}}</em></p>
+            <p>{{edu.city}} {{edu.country}}</p>
+          </div>
+          {% endfor %}
+        
+        </div>
+        <div class="col-lg-6">
+          <h2 >Professional Experience</h2>
+         {% for prof in profs %}
+          <div class="resume-item">
+            <h4>{{prof.title}}</h4>
+            <h5>{{prof.year}}</h5>
+            <!-- <p><em>{{prof.city}} {{prof.country}} </em></p> -->
+            <p>{{prof.company}} {{prof.city}} {{prof.country}}
+              <ul style="font-size: small;">
+              <li>
+                {{prof.duty1}}
+              </li>
+              <li>
+                {{prof.duty2}} 
+              </li>
+              <li> 
+                {{prof.duty3}}
+              </li>
+            </ul>
+            </p>
+          </div>
+        {% endfor %}
+         
+        </div>
+      </div>
+    </div>
+    </div>
+<!-- ======= Services Section ======= -->
+<section id="services" class="services section-bg">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Services</h2>
+      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+    </div>
+    <div class="row">
+      {% for post in posts.items %}
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" id="md-img-container">
+        <div class="icon-box">
+          
+          <img src="{{url_for('static', filename='user_uploads/' + post.screenshot)}}" alt="" id="md-img">
+          <!-- <div id="md-camera-container">
+            <a><img src="/static/assets/img/new/photo-camera.png" style="width:22px;height:22px;margin:10px"></a> 
+            </div> -->
+          
+         
+          <div style=" margin-top:40px;">
+             
+            <h5 class="title" style="margin-top:-25px; font-size: 18px; font-weight: 200;"><a href="">{{post.title}}</a></h5>
+            <p class="description" id="md-post-des">{{post.description}}</p>
+          
+        </div>
+        <div style="display: flex;justify-content: space-between;">
+          <div></div>
+          <a href="{{url_for('download', filename= post.file)}}" style="width: 90px; height: 35px; border: 1px solid #e0e0eb; padding: 7px; border-radius:3px;font-size:12px;">Download</a>
+           
+        </div>
+        </div>
+        
+      </div>
+      {% endfor %}
+
+     <br>
+     <br>
+          <center style="margin: 30px;">
+   {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                      {% if page_num %}
+                           {% if posts.page == page_num %}
+                            <a style="background-color:#ff5c33; color:#ffffff; padding: 12px; border-radius:3px; margin-top:0px" href="{{url_for('index', page= page_num )}}">{{page_num}}</a>
+                            {% else %}
+                            <a style="border:1px solid #ff5c33; padding: 12px; border-radius:3px; margin-top:0px" href="{{url_for('index', page= page_num )}}">{{page_num}}</a>
+                            {% endif %}
+                          {% else %}
+                         
+                        ...
+                      {% endif %}
+
+                  {% endfor %}
+                  </center>
+   
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio section-bg">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Portfolio</h2>
+      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <ul id="portfolio-flters">
+          <li data-filter="*" class="filter-active">All</li>
+          <li data-filter=".filter-app">App</li>
+          <li data-filter=".filter-card">Card</li>
+          <li data-filter=".filter-web">Web</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row portfolio-container">
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <div class="portfolio-wrap">
+          <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>App 1</h4>
+            <p>App</p>
+          </div>
+          <div class="portfolio-links">
+            <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+        <div class="portfolio-wrap">
+          <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Web 3</h4>
+            <p>Web</p>
+          </div>
+          <div class="portfolio-links">
+            <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <div class="portfolio-wrap">
+          <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>App 2</h4>
+            <p>App</p>
+          </div>
+          <div class="portfolio-links">
+            <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+        <div class="portfolio-wrap">
+          <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Card 2</h4>
+            <p>Card</p>
+          </div>
+          <div class="portfolio-links">
+            <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+        <div class="portfolio-wrap">
+          <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Web 2</h4>
+            <p>Web</p>
+          </div>
+          <div class="portfolio-links">
+            <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <div class="portfolio-wrap">
+          <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>App 3</h4>
+            <p>App</p>
+          </div>
+          <div class="portfolio-links">
+            <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+        <div class="portfolio-wrap">
+          <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Card 1</h4>
+            <p>Card</p>
+          </div>
+          <div class="portfolio-links">
+            <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+        <div class="portfolio-wrap">
+          <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Card 3</h4>
+            <p>Card</p>
+          </div>
+          <div class="portfolio-links">
+            <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+        <div class="portfolio-wrap">
+          <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Web 3</h4>
+            <p>Web</p>
+          </div>
+          <div class="portfolio-links">
+            <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Portfolio Section -->
+
+<!-- ======= Testimonials Section ======= -->
+<section id="testimonials" class="testimonials section-bg">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Testimonials</h2>
+      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+    </div>
+
+    <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+            <h3>Saul Goodman</h3>
+            <h4>Ceo &amp; Founder</h4>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+            <h3>Sara Wilsson</h3>
+            <h4>Designer</h4>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+            <h3>Jena Karlis</h3>
+            <h4>Store Owner</h4>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+            <h3>Matt Brandon</h3>
+            <h4>Freelancer</h4>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+            <h3>John Larson</h3>
+            <h4>Entrepreneur</h4>
+          </div>
+        </div><!-- End testimonial item -->
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+</section><!-- End Testimonials Section -->
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact section-bg">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-4 col-md-4">
+        <div class="contact-about">
+          <h3>Lonely</h3>
+          <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+          <div class="social-links">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4">
+        <div class="info">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-geo-alt"></i>
+            <p>A108 Adam Street<br>New York, NY 535022</p>
+          </div>
+
+          <div class="d-flex align-items-center mt-4">
+            <i class="bi bi-envelope"></i>
+            <p>info@example.com</p>
+          </div>
+
+          <div class="d-flex align-items-center mt-4">
+            <i class="bi bi-phone"></i>
+            <p>+1 5589 55488 55s</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-5 col-md-8">
+        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <div class="form-group">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group mt-3">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+          </div>
+          <div class="my-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your message has been sent. Thank you!</div>
+          </div>
+          <div class="text-center"><button type="submit">Send Message</button></div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Contact Section -->
+{% endblock %}
+

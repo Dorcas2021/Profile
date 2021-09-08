@@ -1,0 +1,94 @@
+
+{% extends 'layout/welcome_layout.html' %}
+{% block content %}
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row no-gutters align-items-center" id="major-container-top">
+                    <div class="col-xl-12 align-items-center" style="align-items:center;">
+                      {% with messages= get_flashed_messages(with_categories=true) %}
+                      {% if messages %}
+                         {% for category, message in messages %}
+                      <div class="alert alert border-1 shadow-sm" {{category}}  style=" color:#000000; display: flex; font-size: 15px; text-align:center;">
+                         
+                           {{message}}
+                         </div>
+                      {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+            <div class="card border-1 shadow-sm" id= "major-container">
+              <form method="post" action=""  accept-charset="UTF-8" enctype="multipart/form-data" >
+                
+                {{ form.hidden_tag() }}
+
+                <div class="mb-3">
+                  
+                  {{ form.title.label(class="form-label", style="font-size:13px") }}
+                  {% if form.title.errors %}
+                  {{ form.title(class="form-control is-invalid") }}  
+                    <ul class="errors">
+                      {% for error in form.title.errors %}
+                        <li>{{ error }}</li>
+                      {% endfor %}
+                    </ul>
+                    {% else %}
+                     {{ form.title(class="form-control") }} 
+                  {% endif %}
+                </div>
+                <div class="mb-3">
+                  {{ form.description.label(class="form-label", style="font-size:13px") }}
+                            {% if form.description.errors %}
+                            {{ form.description(class="form-control is-invalid") }}  
+                              <ul class="errors">
+                                {% for error in form.description.errors %}
+                                  <li>{{ error }}</li>
+                                {% endfor %}
+                              </ul>
+                              {% else %}
+                               {{ form.description(class="form-control") }} 
+                            {% endif %}
+                
+                </div>
+                <div class="mb-3">
+                    {{ form.file.label(class="form-label", style="font-size:13px") }}
+                              {% if form.file.errors %}
+                              {{ form.file(class="form-control is-invalid") }}  
+                                <ul class="errors">
+                                  {% for error in form.file.errors %}
+                                    <li>{{ error }}</li>
+                                  {% endfor %}
+                                </ul>
+                                {% else %}
+                                 {{ form.file(class="form-control") }} 
+                              {% endif %}
+                  
+                  </div>
+
+                <div class="mb-3">
+                    {{ form.screenshot.label(class="form-label", style="font-size:13px") }}
+                              {% if form.screenshot.errors %}
+                              {{ form.screenshot(class="form-control is-invalid") }}  
+                                <ul class="errors">
+                                  {% for error in form.screenshot.errors %}
+                                    <li>{{ error }}</li>
+                                  {% endfor %}
+                                </ul>
+                                {% else %}
+                                 {{ form.screenshot(class="form-control") }} 
+                              {% endif %}
+                  
+                  </div>
+                  
+                {{form.submit( class="form-control", style="background-color:blue; color:white") }}
+               
+              </form>
+              
+            </div>
+            
+              </div>
+              
+            </div><!-- End .content-->
+            {% endblock %}
+
+  
